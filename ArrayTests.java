@@ -3,8 +3,7 @@ import org.junit.*;
 
 public class ArrayTests {
 	
-  private int[] input1;
-  private int[] sameRef;
+  private int[] input1, sameRef;
   private double[] input2;
 
   @Before
