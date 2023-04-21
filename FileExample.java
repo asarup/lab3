@@ -39,7 +39,9 @@ public class FileExample {
   */
 
 	static List<File> getFiles(File start) throws IOException {
-	  File f = start;
+	  // ORIGINAL CODE - sorry, but this code made no sense to me so I rewrote it entirely instead of just debugging
+    /* 
+    File f = start;
 	  List<File> result = new ArrayList<>();
 	  result.add(start);
 	  if(f.isDirectory()) {
@@ -47,7 +49,38 @@ public class FileExample {
 	    for(File subFile: paths) {
 	      result.add(subFile);
 	    }
-	  }
+	  }*/ 
+    
+    // RECURSIVE APPROACH - this worked but I wanted a closed form approach
+    /* 
+    List<File> result = new ArrayList<>();
+    if(!start.isDirectory()) {
+      result.add(start);
+    } else {
+      File[] paths = start.listFiles();
+      for(int i = 0; i < paths.length; i++) {
+        result.addAll(getFiles(paths[i]));
+      }
+    }*/
+
+    // WHILE LOOP APPROACH
+    List<File> result = new ArrayList<>();
+    List<File> subFiles = new ArrayList<>();
+    subFiles.add(start);
+    while(subFiles.size() > 0) {
+      File currFile = subFiles.remove(subFiles.size()-1);
+
+      if(!currFile.isDirectory()) {
+        result.add(currFile);
+        continue;
+      }
+
+      File[] paths = currFile.listFiles();
+      for(File path : paths) {
+        subFiles.add(path);
+      }
+    }
+
 	  return result;
 	}
 }
