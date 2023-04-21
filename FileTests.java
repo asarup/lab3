@@ -28,9 +28,9 @@ public class FileTests {
     }
     
     /*
-        It was nearly impossible for me to have getFiles() preserve the order
-        of the files, so I sorted the expected and actual results before comparing
-        them so that order wouldn't matter during the assertArrayEquals tests.
+        I was unable to have getFiles() preserve the order of the files, so I 
+        sorted the expected and actual results before comparing them so that 
+        order wouldn't matter during the assertArrayEquals tests.
      */
     @Test
     public void testGetFiles() throws IOException {
