@@ -93,5 +93,28 @@ Of course, it would make sense for this to pass even if the method did nothing, 
     assertArrayEquals(new int[]{9, 7, 5, 3, 1}, input1);
   }
 ```
-It is noteworthy, though, that in both of these cases, `assertEquals(sameRef, input1);` did pass, meaning that whatever the `reverseInPlace()` method was doing, it was in fact doing so "in place." 
+It is noteworthy, though, that in both of these cases, `assertEquals(sameRef, input1);` did pass, meaning that whatever the `reverseInPlace()` method was doing, it was in fact doing so "in place." The JUnit outputs from both of these test cases put together can be seen in the image below:
+![JUnit Output](JUnitBuggyOutput.png)
+All of the tests passed except the final one, which was checking to see if an asymmetrical list would be properly reversed. Instead, the result was the same array with the left half of the values overwritten to mirror the right half. This was fixed in two ways:
+1) I added lines within the for loop to use a temp variable so that the left values can be swapped with the right values rather than overwritten
+2) I changed the number of iterations to the length of the array divided by 2, so the method would stop swapping once the entire left half is swapped with the entire right half, reversing the array
+The code before my changes can be seen below:
+```
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length; i += 1) {
+      arr[i] = arr[arr.length - i - 1];
+    }
+  }
+```
+And here is the code after my fixes:
+```  
+  static void reverseInPlace(int[] arr) {
+    for(int i = 0; i < arr.length/2; i += 1) {
+      int temp = arr[i];
+      arr[i] = arr[arr.length - i - 1];
+      arr[arr.length - i - 1] = temp;
+    }
+  }
+```
+After implementing this code, all my JUnit tests for the `reverseInPlace()` method passed as expected.
 
