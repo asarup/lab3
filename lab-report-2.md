@@ -113,7 +113,7 @@ And here is the code after my fixes:
       int temp = arr[i];
       arr[i] = arr[arr.length - i - 1];
       arr[arr.length - i - 1] = temp;
-    }
+    } 
   }
 ```
 After implementing this code, all my JUnit tests for the `reverseInPlace()` method passed as expected.
