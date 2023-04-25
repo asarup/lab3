@@ -95,4 +95,3 @@ Of course, it would make sense for this to pass even if the method did nothing, 
 ```
 It is noteworthy, though, that in both of these cases, `assertEquals(sameRef, input1);` did pass, meaning that whatever the `reverseInPlace()` method was doing, it was in fact doing so "in place." 
 
-
