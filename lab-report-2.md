@@ -118,3 +118,7 @@ And here is the code after my fixes:
 ```
 After implementing this code, all my JUnit tests for the `reverseInPlace()` method passed as expected.
 
+
+## Part 3 - Reflection
+This lab taught me a lot about interacting with remote servers. Prior to week 2, I had no idea how I would even go about doing something like that, but now that I know it's surprisingly simple. I guess it makes sense that it would be simple, since being able to run commands on remote devices is probably a pretty critical functionality for almost any form of software development. I imagine that this skill in particular - knowing how to use `ssh`, `scp`, and other mechanisms of interacting with remote servers - will come in handy for most, if not all, of the projects I will work on in the future.
+
