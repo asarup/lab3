@@ -8,7 +8,7 @@ class Handler implements URLHandler {
         
         if(url.getQuery() != null) {
             String[] parameters = url.getQuery().split("=");
-            if(url.getPath().contains("/add-message")) {
+            if(url.getPath().equals("/add-message")) {
                 if(parameters[0].equals("s")) {
                     result += (result == "" ? "" : "\n") + parameters[1];
                     return result;
