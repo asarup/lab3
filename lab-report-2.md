@@ -69,11 +69,11 @@ One of the bugs I found during this lab was in the `reverseInPlace()` method of 
 
   
   @Test 
-	public void testReverseInPlace() {
+  public void testReverseInPlace() {
     ArrayExamples.reverseInPlace(input1);
     assertEquals(sameRef1, input1);
     assertArrayEquals(new int[]{1, 3, 5, 3, 1}, input1);
-	}
+  }
 ```
 Of course, it would make sense for this to pass even if the method did nothing, since this array input is palindromic. When confronted with something more asymmetrical like the following test, the `reverseInPlace()` method failed.
 ```
@@ -87,7 +87,7 @@ Of course, it would make sense for this to pass even if the method did nothing, 
 
   
   @Test 
-	public void testReverseInPlace() {
+  public void testReverseInPlace() {
     ArrayExamples.reverseInPlace(input2);
     assertEquals(sameRef2, input2);
     assertArrayEquals(new int[]{9, 7, 5, 3, 1}, input1);
@@ -120,5 +120,7 @@ After implementing this code, all my JUnit tests for the `reverseInPlace()` meth
 
 
 ## Part 3 - Reflection
-This lab taught me a lot about interacting with remote servers. Prior to week 2, I had no idea how I would even go about doing something like that, but now that I know it's surprisingly simple. I guess it makes sense that it would be simple, since being able to run commands on remote devices is probably a pretty critical functionality for almost any form of software development. I imagine that this skill in particular - knowing how to use `ssh`, `scp`, and other mechanisms of interacting with remote servers - will come in handy for most, if not all, of the projects I will work on in the future.
+This lab taught me a lot about running servers on local and even remote ports. By creating a class that implements the `URLHandler` interface and overriding its `handleRequest(URI url)` method, I learned how I can use the URL path to execute certain functionalities, like adding a queried string to a searchable list. This is in large part also thanks to my newfound understanding of the actual structure of a URL, and how it can be broken down into components like the root, path, and query. 
+
+I also learned more about writing tests with JUnit and how important it is to use multiple tests that check for unique scenarios/edge cases. For example, the `reverseInPlace()` method passed on some inputs, and failed on others. If I hadn't found the case in which the method failed, I wouldn't have known that the method wasn't implemented properly.
 
