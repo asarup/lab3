@@ -121,6 +121,5 @@ After implementing this code, all my JUnit tests for the `reverseInPlace()` meth
 
 ## Part 3 - Reflection
 This lab taught me a lot about running servers on local and even remote ports. By creating a class that implements the `URLHandler` interface and overriding its `handleRequest(URI url)` method, I learned how I can use the URL path to execute certain functionalities, like adding a queried string to a searchable list. This is in large part also thanks to my newfound understanding of the actual structure of a URL, and how it can be broken down into components like the root, path, and query. 
-
 I also learned more about writing tests with JUnit and how important it is to use multiple tests that check for unique scenarios/edge cases. For example, the `reverseInPlace()` method passed on some inputs, and failed on others. If I hadn't found the case in which the method failed, I wouldn't have known that the method wasn't implemented properly.
 
